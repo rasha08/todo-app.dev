@@ -1,0 +1,30 @@
+
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" validate class="row well">
+    <div class="col-md-7">
+        <div class="form-group">
+            <label for="todo">To Do</label>
+            <input ngModel
+                #todo="ngModel"
+                required
+                type="text"
+                class="form-control"
+                name="todo"
+                id="todo"
+                placeholder="Mesto za vas To Do ...">
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="form-group">
+            <label for="todo">Prioritet</label>
+            <select ngModel required #priority="ngModel" class="form-control" id="select" name="priority">
+                <option value="normalno">normalno</option>
+                <option value="vazno">vazno</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="col-md-2">
+        <button (click)="onSubmit(f)" class="btn btn-success btn-block btn-large">Dodaj</button>  
+    </div>
+</form>

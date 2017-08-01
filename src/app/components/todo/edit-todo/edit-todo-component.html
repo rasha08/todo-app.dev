@@ -1,0 +1,39 @@
+<div class="col-md-6">
+    <div *ngIf="openTodo">
+        <div class="well">
+            <form #f="ngForm" (ngSubmit) = "onSubmit(f)">
+                <div class="form-group">
+                    <label for="todo">To Do</label>
+                    <input ngModel 
+                        #todo="ngModel"
+                        required
+                        type="text"
+                        class="form-control"
+                        id="todo"
+                        placeholder="{{ openTodo.todo }}"
+                        name="todo">
+                </div>
+               
+                <label for="priority">Prioritet</label>
+                <select ngModel required #todo = "ngModel" class="form-control" id="select" name="priority">
+                    <option value="normalno">normalno</option>
+                    <option value="vazno">vazno</option>
+                </select>
+
+                <div class="checkbox">
+                    <label>
+                        <input ngModel #done="ngModel" type="checkbox" name="done"> Uradjeno
+                    </label>
+                 </div>
+                 
+                 <div class="col-md-3 col-md-offset-6">
+                    <button (click)="onSubmit(f)" class="btn btn-default btn-block">Sacuvaj</button>
+                </div>
+                <div class="col-md-3">
+                    <button (click)="closeTodo.emit()" class="btn btn-danger btn-block">Zatvori</button>
+                </div>
+                <hr>
+            </form>
+        </div>
+    </div>
+</div>

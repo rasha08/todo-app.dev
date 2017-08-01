@@ -1,0 +1,9 @@
+.todo-container{
+  min-height: 82vh;
+}
+
+.alert{
+  z-index: 999;
+  position:  absolute;
+  box-shadow: 6px 8px 20px gray;
+}

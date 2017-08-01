@@ -1,0 +1,33 @@
+<div class="container todo-container">
+    <button class="btn btn-primary btn-large" *ngIf = "!isAddFormOpen" (click) = "toggleAddTodoForm()">
+        Dodaj Todo
+    </button>
+    <button class="btn btn-warning btn-large" *ngIf = "isAddFormOpen" (click) = "toggleAddTodoForm()">
+        Zatvori Formu
+    </button>
+    <div class="col-md-9 col-md-offset-1 alert {{ messageType }}" *ngIf = "message">
+        <h2 class="text-center">{{ message }}</h2>
+    </div>
+    <hr>
+    <div *ngIf = "isAddFormOpen">
+        <app-add-todo
+        (addTodo) = 'addTodo($event)'
+        ></app-add-todo>
+        <hr>
+    </div>
+    <div class="row">
+        <app-todo-list
+        [todos] = 'todos'
+        (selectTodo) = 'selectTodo($event)'
+        (deleteTodo) = 'deleteTodo($event)'
+        (doneTodo) = 'doneTodo($event)'
+        (undoneTodo) = 'undoneTodo($event)'
+        ></app-todo-list>
+
+        <app-edit-todo
+        [openTodo] = 'openTodo'
+        (closeTodo) = 'closeTodo($event)'
+        (updateTodo) = 'updateTodo($event)'
+        ></app-edit-todo>
+  </div>
+</div>
